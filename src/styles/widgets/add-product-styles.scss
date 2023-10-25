@@ -1,0 +1,11 @@
+#add-product-styles {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  .column {
+    margin-left: 10px;
+    width: 1px;
+    background: black;
+  }
+}
