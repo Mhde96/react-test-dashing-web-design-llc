@@ -1,6 +1,8 @@
-# React Test by Dashing Web Design LLC
+# React Test for Dashing Web Design LLC
 
-This project has been initialized using [Create React App](https://github.com/facebook/create-react-app).
+# [Demo 😎🚀](https://react-test-dashing-web-design-llc.vercel.app/login)
+
+This project has been initialized using [Create React App](https://create-react-app.dev/docs/adding-typescript/). with `typescript template`
 
 ## Getting Started
 
