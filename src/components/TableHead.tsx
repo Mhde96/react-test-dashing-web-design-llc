@@ -2,8 +2,8 @@ import { SortBy } from "../types/pages/PlatformPagePropsType";
 
 type TableHeadProps = {
   title: string;
-  descending: string;
-  ascending: string;
+  descending?: string;
+  ascending?: string;
   sortBy: SortBy;
   onClick: () => void;
 };

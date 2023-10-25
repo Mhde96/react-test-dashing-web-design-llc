@@ -3,6 +3,7 @@ import { InputBox } from "../components/InputBox";
 import { TableData } from "../components/TableData";
 import { TableHead } from "../components/TableHead";
 import { PlatformPagePropsType } from "../types/pages/PlatformPagePropsType";
+import { AddProduct } from "../widgets/AddProduct";
 
 export const PlatformPage = ({
   data,
@@ -12,11 +13,14 @@ export const PlatformPage = ({
   setData,
   dataFiltered,
   user,
+  handleDeleteProduct,
+  handleUpdateProduct,
 }: PlatformPagePropsType) => {
   const [editCell, setEditCell] = useState({
     rowIndex: 0,
     columnIndex: "",
   });
+
   return (
     <div id="platform-page-styles">
       <div className="layout">
@@ -35,8 +39,11 @@ export const PlatformPage = ({
             placeholder="Search"
             type="text"
           />
+
+          <AddProduct />
         </div>
         <hr />
+
         <div className="customer-table-contaienr">
           <table className="product-table">
             <tr>
@@ -70,6 +77,7 @@ export const PlatformPage = ({
                   else handleChangeSortBy("price");
                 }}
               />
+              <TableHead title="Function" sortBy={sortBy} onClick={() => {}} />
             </tr>
 
             {user.role == "admin" ? (
@@ -90,13 +98,9 @@ export const PlatformPage = ({
                         setEditCell({ columnIndex: "title", rowIndex: index });
                       }}
                       handleChange={(value) => {
-                        let copyOfData = data;
-                        copyOfData[index].title = value;
-                        setEditCell({
-                          columnIndex: "",
-                          rowIndex: 0,
-                        });
-                        setData(copyOfData);
+                        const property = "title";
+                        setEditCell({ columnIndex: "", rowIndex: 0 });
+                        handleUpdateProduct({ value, property, index });
                       }}
                     />
 
@@ -121,6 +125,12 @@ export const PlatformPage = ({
                         setData(copyOfData);
                       }}
                     />
+                    <td
+                      className="pointer"
+                      onClick={() => handleDeleteProduct(item.id)}
+                    >
+                      Delete
+                    </td>
                   </tr>
                 ))}
               </>

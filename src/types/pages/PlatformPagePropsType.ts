@@ -16,4 +16,6 @@ export type PlatformPagePropsType = {
     user: any;
     handleChangeSearch: (value: string) => void;
     handleChangeSortBy: (value: SortBy) => void;
+    handleDeleteProduct: (index: number) => void;
+    handleUpdateProduct: (index: any) => void;
 }

@@ -30,7 +30,7 @@ export const PlatformLayout = () => {
         </div>
       </div>
       <div className="container-layout">
-        <div>
+        <div className="layout-width">
           <Outlet />
         </div>
       </div>

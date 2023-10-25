@@ -7,6 +7,7 @@ import {
 import { getProductsApi } from "../apis/getProductsApi";
 import { AuthContext } from "../context-api/authContextApi";
 import { ProductType } from "../types/data/ProductType";
+import { ProductContext } from "../context-api/productContextApi";
 
 const sortFunctions: Record<
   SortBy,
@@ -22,7 +23,9 @@ const sortFunctions: Record<
 
 export const PlatformContainer = () => {
   const [search, setSearch] = useState("");
-  const [data, setData] = useState<Array<ProductType>>([]);
+  const { data, setData, handleUpdateProduct,handleDeleteProduct } = useContext(ProductContext);
+
+  // const [data, setData] = useState<Array<ProductType>>([]);
   const [sortBy, setSortBy] = useState<SortBy>("id");
   const authContext: any = useContext(AuthContext);
 
@@ -65,6 +68,9 @@ export const PlatformContainer = () => {
     setData,
     dataFiltered,
     user: authContext.user,
+    handleUpdateProduct,
+    handleDeleteProduct
+
   };
 
   return <PlatformPage {...props} />;
