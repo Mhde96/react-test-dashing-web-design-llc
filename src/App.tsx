@@ -14,7 +14,7 @@ import { Navigation } from "./Routes";
 import { AuthProvider } from "./context-api/authContextApi";
 import { ProductProvider } from "./context-api/productContextApi";
 
-function App() {
+const App = () => {
   return (
     <AuthProvider>
       <ProductProvider>
@@ -22,6 +22,6 @@ function App() {
       </ProductProvider>
     </AuthProvider>
   );
-}
+};
 
 export default App;

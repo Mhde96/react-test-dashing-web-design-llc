@@ -136,7 +136,10 @@ export const PlatformPage: React.FC<PlatformPagePropsType> = memo(
                         className="pointer"
                         onClick={() => handleDeleteProduct(item.id)}
                       >
-                        Delete
+                        <img
+                          src="assets\trash-solid.svg"
+                          style={{ width: 20, height: 20 }}
+                        />
                       </td>
                     </tr>
                   ))}

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useMemo, useState } from "react";
+import { memo, useContext, useEffect, useMemo, useState } from "react";
 import { PlatformPage } from "../pages/PlatformPage";
 import {
   PlatformPagePropsType,
@@ -21,7 +21,7 @@ const sortFunctions: Record<
   reverseprice: (a, b) => b.price - a.price,
 };
 
- const PlatformContainer = () => {
+ const PlatformContainer = memo( () => {
   const [search, setSearch] = useState("");
   const { data, setData, handleUpdateProduct, handleDeleteProduct } =
     useContext(ProductContext);
@@ -73,6 +73,6 @@ const sortFunctions: Record<
   };
   if (data.length == 0) return <div className="center">"loading ..."</div>;
   return <PlatformPage {...props} />;
-};
+});
 
 export default PlatformContainer

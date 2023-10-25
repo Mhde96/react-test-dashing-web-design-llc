@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { memo, useContext } from "react";
 import {
   AuthContext,
   initialAuthContextState,
@@ -7,7 +7,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { endroutes } from "../../constant/endroutes";
 import { Button } from "../../components/Button";
 import { localStorageKey } from "../../constant/localStorageKey";
- const PlatformLayout = () => {
+ const PlatformLayout = memo( () => {
   const authContext = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -36,6 +36,6 @@ import { localStorageKey } from "../../constant/localStorageKey";
       </div>
     </div>
   );
-};
+});
 
 export default PlatformLayout

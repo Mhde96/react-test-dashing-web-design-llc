@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { memo, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { endroutes } from "../constant/endroutes";
 import { UserType } from "../types/data/UserType";
@@ -32,7 +32,7 @@ const validatePassword = (password: string): string => {
   return "";
 };
 
- const LoginContainer: React.FC = () => {
+ const LoginContainer: React.FC = memo( () => {
   const navigate = useNavigate();
   const context = useContext(AuthContext);
 
@@ -74,6 +74,6 @@ const validatePassword = (password: string): string => {
   };
 
   return <LoginPage {...props} />;
-};
+});
 
 export default LoginContainer

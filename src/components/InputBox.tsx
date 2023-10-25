@@ -1,6 +1,7 @@
+import { memo } from "react";
 import { InputBoxType } from "../types/components/InputBoxType";
 
-export const InputBox = ({
+export const InputBox = memo( ({
   handleChange,
   type,
   placeholder,
@@ -20,4 +21,4 @@ export const InputBox = ({
       {error && <span className="error">{error}</span>}
     </>
   );
-};
+});
