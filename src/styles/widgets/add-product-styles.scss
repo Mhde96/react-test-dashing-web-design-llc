@@ -1,9 +1,25 @@
+@import "../variable.scss";
 #add-product-styles {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+
+  @media (max-width: $sm) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width:$md) {
+    // padding-left: 10px;
+    
+  }
+
   gap: 10px;
   .column {
+    @media (max-width: $md) {
+      display: none;
+    }
     margin-left: 10px;
     width: 1px;
     background: black;

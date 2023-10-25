@@ -8,4 +8,11 @@
   color: $text-color;
   text-align: center;
   cursor: pointer;
+
+  transition: background-color 0.3s, transform 0.3s;
+
+  &:hover {
+    background-color: #e74c3c;
+    transform: scale(1.05);
+  }
 }

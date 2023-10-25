@@ -77,7 +77,7 @@ export const PlatformPage = ({
                   else handleChangeSortBy("price");
                 }}
               />
-              <TableHead title="Function" sortBy={sortBy} onClick={() => {}} />
+              <TableHead title="" sortBy={sortBy} onClick={() => {}} />
             </tr>
 
             {user.role == "admin" ? (
