@@ -43,4 +43,4 @@ username : Ahmad
 
 password : 12345aA@
 
-## If you have any questions or run into problems (😅🤖), don't be shy! We're here for you. Thanks for gracing our application with your presence! 🚀
+## If you have any questions or run into problems (😅🤖), don't be shy! I'm here for you. Thanks for gracing our application with your presence! 🚀
