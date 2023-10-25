@@ -1,5 +1,4 @@
 // styles
-import "./App.scss";
 import "./styles/pages/login-page-styles.scss";
 import "./styles/pages/platform-page-styles.scss";
 
