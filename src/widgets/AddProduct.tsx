@@ -2,12 +2,38 @@ import { useContext, useState } from "react";
 import { InputBox } from "../components/InputBox";
 import { Button } from "../components/Button";
 import { ProductContext } from "../context-api/productContextApi";
+import { ProductType } from "../types/data/ProductType";
 
 export const AddProduct = () => {
   const { handleAddProduct } = useContext(ProductContext);
 
-  const [title, setTitle] = useState("");
-  const [price, setPrice] = useState("");
+  const [title, setTitle] = useState<string>("");
+  const [price, setPrice] = useState<string>("");
+
+  const addProduct = () => {
+    const parsedPrice = parseFloat(price);
+
+    if (title.trim() === "") {
+      alert("Title cannot be empty.");
+      return;
+    }
+
+    if (isNaN(parsedPrice)) {
+      alert("Please Add Valid Number");
+      return;
+    }
+
+    const newProduct: ProductType = {
+      id: 0, // You must  generate a unique ID here
+      title,
+      price: parsedPrice,
+    };
+
+    handleAddProduct(newProduct);
+
+    setTitle("");
+    setPrice("");
+  };
 
   return (
     <div id="add-product-styles">
@@ -25,16 +51,7 @@ export const AddProduct = () => {
         value={price.toString()}
       />
 
-      <Button
-        onClick={() => {
-          const _peice = parseFloat(price);
-          handleAddProduct({ price: _peice, title, id: 0 });
-          setTitle("");
-          setPrice("");
-        }}
-      >
-        Add
-      </Button>
+      <Button onClick={addProduct}>Add</Button>
     </div>
   );
 };
