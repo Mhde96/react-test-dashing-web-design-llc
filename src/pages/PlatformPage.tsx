@@ -41,7 +41,7 @@ export const PlatformPage: React.FC<PlatformPagePropsType> = memo(
               type="text"
             />
 
-            <AddProduct />
+            {user.role == "admin" && <AddProduct />}
           </div>
           <hr />
 
@@ -106,7 +106,12 @@ export const PlatformPage: React.FC<PlatformPagePropsType> = memo(
                         handleChange={(value) => {
                           const property = "title";
                           setEditCell({ columnIndex: "", rowIndex: 0 });
-                          handleUpdateProduct({ value, property, index });
+                          handleUpdateProduct({
+                            value,
+                            property,
+                            index,
+                            id: item.id,
+                          });
                         }}
                       />
 
@@ -125,13 +130,24 @@ export const PlatformPage: React.FC<PlatformPagePropsType> = memo(
                           });
                         }}
                         handleChange={(value) => {
-                          let copyOfData = data;
-                          (copyOfData[index].price as any) = value;
-                          setEditCell({
-                            columnIndex: "",
-                            rowIndex: 0,
+
+                          const property = "price";
+                          setEditCell({ columnIndex: "", rowIndex: 0 });
+                          handleUpdateProduct({
+                            value,
+                            property,
+                            index,
+                            id: item.id,
                           });
-                          setData(copyOfData);
+
+
+                          // let copyOfData = data;
+                          // (copyOfData[index].price as any) = value;
+                          // setEditCell({
+                          //   columnIndex: "",
+                          //   rowIndex: 0,
+                          // });
+                          // setData(copyOfData);
                         }}
                       />
                       <td
@@ -151,7 +167,7 @@ export const PlatformPage: React.FC<PlatformPagePropsType> = memo(
                   {dataFiltered.map((item) => (
                     <tr key={item.id}>
                       <td>{item.id}</td>
-                      <td  className="full-width">{item.title}</td>
+                      <td className="full-width">{item.title}</td>
                       <td>{item.price}</td>
                     </tr>
                   ))}

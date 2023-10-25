@@ -19,7 +19,7 @@ export const AddProduct = memo(() => {
     }
 
     if (isNaN(parsedPrice)) {
-      alert("Please Add Valid Number");
+      alert("Please Add Valid Price");
       return;
     }
 
@@ -39,7 +39,7 @@ export const AddProduct = memo(() => {
     <div id="add-product-styles">
       <div className="column" />
       <InputBox
-        placeholder="title"
+        placeholder="Name"
         type="text"
         handleChange={(value) => setTitle(value)}
         value={title}

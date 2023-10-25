@@ -10,6 +10,7 @@ export type ProductContextType = {
     value: string | number;
     property: string;
     index: number;
+    id: number;
   }) => void;
   handleDeleteProduct: (index: number) => void;
 };
@@ -41,10 +42,16 @@ export const ProductProvider: React.FC<{ children: ReactNode }> = ({
     value: string | number;
     property: string;
     index: number;
+    id: number;
   }) => {
     const { index, property, value } = props;
-    let copyOfData: any = data;
-    copyOfData[index][property] = value;
+    let copyOfData: ProductType[] = data;
+    copyOfData = copyOfData.map((item: any, indx) => {
+      if (item.id == props.id) item[property] = value;
+
+      return item;
+    });
+    // copyOfData[index][property] = value;
     setData(copyOfData);
   };
   const handleDeleteProduct = (id: number) => {
