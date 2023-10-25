@@ -3,4 +3,5 @@ export type InputBoxType = {
   type: string;
   placeholder: string;
   value?: string
+  error?: string
 };
