@@ -1,3 +1,4 @@
+import { endpoints } from "../constant/endpoints";
 import { UserType } from "../types/data/UserType";
 
 export const LoginApi = async (
@@ -5,7 +6,7 @@ export const LoginApi = async (
   password: string
 ): Promise<UserType> => {
   try {
-    const response = await fetch(`mock/users.json`);
+    const response = await fetch(endpoints.users);
     if (!response.ok) {
       throw new Error(`Error fetching data: ${response.statusText}`);
     }

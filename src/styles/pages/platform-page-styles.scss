@@ -1,0 +1,66 @@
+@import "../variable.scss";
+$color_1: white;
+$font-family_1: Arial, Helvetica, sans-serif;
+$background-color_2: #ddd;
+
+#platform-page-styles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+
+  .layout {
+    width: 90%;
+  }
+
+  .description {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    span {
+      padding: 0px 20px;
+      max-width: 500px;
+    }
+  }
+
+  .search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 8px;
+  }
+
+  .customer-table-contaienr {
+  }
+  .product-table {
+    font-family: $font-family_1;
+    border-collapse: collapse;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    th {
+      border: 1px solid #ddd;
+      padding: 8px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: $primary-color;
+      color: $color_1;
+    }
+    tr {
+      &:nth-child(even) {
+        background-color: $background-color;
+      }
+      &:hover {
+        background-color: $background-color_2;
+      }
+    }
+  }
+}
