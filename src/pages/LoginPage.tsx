@@ -7,11 +7,14 @@ export const LoginPage = ({
   handleChangeUserName,
   handleChangePassword,
   handleLogin,
+  error,
+  loading,
 }: LoginPageType) => {
   return (
     <div id="login-page-styles">
       <div className="login-box">
-        <Text textAlign={"center"} content="Hello Again!" />
+        <Text textAlign={"center"} content="Welcome Back 👋" />
+        <br />
         <InputBox
           type="text"
           placeholder="Username"
@@ -21,8 +24,9 @@ export const LoginPage = ({
           type="password"
           placeholder="Password"
           handleChange={(value: string) => handleChangePassword(value)}
+          error={error}
         />
-        <Button onClick={handleLogin}>Login</Button>
+        <Button loading={loading} onClick={handleLogin}>Login</Button>
       </div>
     </div>
   );

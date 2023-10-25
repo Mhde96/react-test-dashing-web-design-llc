@@ -23,7 +23,8 @@ const sortFunctions: Record<
 
 export const PlatformContainer = () => {
   const [search, setSearch] = useState("");
-  const { data, setData, handleUpdateProduct,handleDeleteProduct } = useContext(ProductContext);
+  const { data, setData, handleUpdateProduct, handleDeleteProduct } =
+    useContext(ProductContext);
 
   // const [data, setData] = useState<Array<ProductType>>([]);
   const [sortBy, setSortBy] = useState<SortBy>("id");
@@ -69,9 +70,8 @@ export const PlatformContainer = () => {
     dataFiltered,
     user: authContext.user,
     handleUpdateProduct,
-    handleDeleteProduct
-
+    handleDeleteProduct,
   };
-
+  if (data.length == 0) return <div className="center">"loading ..."</div>;
   return <PlatformPage {...props} />;
 };

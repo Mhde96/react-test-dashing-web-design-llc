@@ -4,6 +4,18 @@ $font-family_1: Arial, Helvetica, sans-serif;
 $background-color_2: #ddd;
 
 #platform-page-styles {
+  opacity: 0; // Start with opacity at 0
+  animation: fadeIn 0.5s linear forwards;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0; // Start with opacity at 0
+    }
+    100% {
+      opacity: 1; // End with opacity at 1
+    }
+  }
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,6 +45,8 @@ $background-color_2: #ddd;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
   }
 
   .customer-table-contaienr {
