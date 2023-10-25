@@ -34,13 +34,22 @@ export const Navigation = memo(() => {
           path={endroutes.platform}
           element={
             authContext.user.id ? (
-              <PlatformLayout />
+              <React.Suspense>
+                <PlatformLayout />
+              </React.Suspense>
             ) : (
               <Navigate to={endroutes.login} />
             )
           }
         >
-          <Route index element={<PlatformContainer />} />
+          <Route
+            index
+            element={
+              <React.Suspense>
+                <PlatformContainer />
+              </React.Suspense>
+            }
+          />
         </Route>
 
         <Route
@@ -49,10 +58,14 @@ export const Navigation = memo(() => {
             authContext?.user.id > 0 ? (
               <Navigate to={endroutes.platform} />
             ) : (
-              <LoginContainer />
+              <React.Suspense>
+                <LoginContainer />
+              </React.Suspense>
             )
           }
         />
+
+        <Route path="/*" element={<Navigate to={endroutes.login} />} />
       </Routes>
     </BrowserRouter>
   );

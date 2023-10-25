@@ -78,7 +78,9 @@ export const PlatformPage: React.FC<PlatformPagePropsType> = memo(
                     else handleChangeSortBy("price");
                   }}
                 />
-                <TableHead title="" sortBy={sortBy} onClick={() => {}} />
+                {user.role == "admin" && (
+                  <TableHead title="" sortBy={sortBy} onClick={() => {}} />
+                )}
               </tr>
 
               {user.role == "admin" ? (
@@ -149,7 +151,7 @@ export const PlatformPage: React.FC<PlatformPagePropsType> = memo(
                   {dataFiltered.map((item) => (
                     <tr key={item.id}>
                       <td>{item.id}</td>
-                      <td>{item.title}</td>
+                      <td  className="full-width">{item.title}</td>
                       <td>{item.price}</td>
                     </tr>
                   ))}

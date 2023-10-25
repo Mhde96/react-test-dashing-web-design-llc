@@ -41,7 +41,7 @@ const sortFunctions: Record<
       item?.title?.toLowerCase()?.includes(search.toLowerCase())
     );
     return values.sort(compare);
-  }, [data, search]);
+  }, [data, search , sortBy]);
 
   useEffect(() => {
     handleGetProducts();
