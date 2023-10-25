@@ -3,13 +3,13 @@ import { InputBox } from "../components/InputBox";
 import { Text } from "../components/Text";
 import { LoginPageType } from "../types/pages/LoginPageType";
 
-export const LoginPage = ({
+export const LoginPage: React.FC<LoginPageType> = ({
   handleChangeUserName,
   handleChangePassword,
   handleLogin,
   error,
   loading,
-}: LoginPageType) => {
+}) => {
   return (
     <div id="login-page-styles">
       <div className="login-box">
@@ -26,7 +26,9 @@ export const LoginPage = ({
           handleChange={(value: string) => handleChangePassword(value)}
           error={error}
         />
-        <Button loading={loading} onClick={handleLogin}>Login</Button>
+        <Button loading={loading} onClick={handleLogin}>
+          Login
+        </Button>
       </div>
     </div>
   );

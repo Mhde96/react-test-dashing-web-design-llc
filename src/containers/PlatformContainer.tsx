@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { PlatformPage } from "../pages/PlatformPage";
 import {
   PlatformPagePropsType,
@@ -21,12 +21,11 @@ const sortFunctions: Record<
   reverseprice: (a, b) => b.price - a.price,
 };
 
-export const PlatformContainer = () => {
+ const PlatformContainer = () => {
   const [search, setSearch] = useState("");
   const { data, setData, handleUpdateProduct, handleDeleteProduct } =
     useContext(ProductContext);
 
-  // const [data, setData] = useState<Array<ProductType>>([]);
   const [sortBy, setSortBy] = useState<SortBy>("id");
   const authContext: any = useContext(AuthContext);
 
@@ -37,12 +36,12 @@ export const PlatformContainer = () => {
     return 0;
   };
 
-  const dataFiltered = () => {
-    const values = data.filter((item) =>
+  const dataFiltered: ProductType[] = useMemo(() => {
+    const values: ProductType[] = data.filter((item) =>
       item?.title?.toLowerCase()?.includes(search.toLowerCase())
     );
     return values.sort(compare);
-  };
+  }, [data, search]);
 
   useEffect(() => {
     handleGetProducts();
@@ -75,3 +74,5 @@ export const PlatformContainer = () => {
   if (data.length == 0) return <div className="center">"loading ..."</div>;
   return <PlatformPage {...props} />;
 };
+
+export default PlatformContainer

@@ -1,7 +1,7 @@
 @import "../variable.scss";
 #header-widget {
   background: $primary-color;
-  color: white;
+  color: $on-primary-color;
   font-size: $fs2;
 
   display: flex;

@@ -7,7 +7,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { endroutes } from "../../constant/endroutes";
 import { Button } from "../../components/Button";
 import { localStorageKey } from "../../constant/localStorageKey";
-export const PlatformLayout = () => {
+ const PlatformLayout = () => {
   const authContext = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -37,3 +37,5 @@ export const PlatformLayout = () => {
     </div>
   );
 };
+
+export default PlatformLayout

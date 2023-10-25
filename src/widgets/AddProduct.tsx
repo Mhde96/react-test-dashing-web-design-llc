@@ -1,10 +1,10 @@
-import { useContext, useState } from "react";
+import { memo, useContext, useState } from "react";
 import { InputBox } from "../components/InputBox";
 import { Button } from "../components/Button";
 import { ProductContext } from "../context-api/productContextApi";
 import { ProductType } from "../types/data/ProductType";
 
-export const AddProduct = () => {
+export const AddProduct = memo(() => {
   const { handleAddProduct } = useContext(ProductContext);
 
   const [title, setTitle] = useState<string>("");
@@ -54,4 +54,4 @@ export const AddProduct = () => {
       <Button onClick={addProduct}>Add</Button>
     </div>
   );
-};
+});

@@ -32,7 +32,7 @@ const validatePassword = (password: string): string => {
   return "";
 };
 
-export const LoginContainer: React.FC = () => {
+ const LoginContainer: React.FC = () => {
   const navigate = useNavigate();
   const context = useContext(AuthContext);
 
@@ -59,8 +59,6 @@ export const LoginContainer: React.FC = () => {
       } else alert("🤖 Uh-oh! Username or password mismatch! 🚫💻");
     } else {
       setError(validatePassword(password));
-
-      // Alert or handle the case where the password criteria are not met.
     }
     setTimeout(() => {
       setLoading(false);
@@ -77,3 +75,5 @@ export const LoginContainer: React.FC = () => {
 
   return <LoginPage {...props} />;
 };
+
+export default LoginContainer

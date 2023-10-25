@@ -1,7 +1,7 @@
 @import "../variable.scss";
-$color_1: white;
-$font-family_1: Arial, Helvetica, sans-serif;
-$background-color_2: #ddd;
+// $color_1: #ffffff;
+$hover-table-color: #ddd;
+
 
 #platform-page-styles {
   opacity: 0; // Start with opacity at 0
@@ -52,31 +52,30 @@ $background-color_2: #ddd;
   .customer-table-contaienr {
   }
   .product-table {
-    font-family: $font-family_1;
     border-collapse: collapse;
 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 10px;
 
     td {
-      border: 1px solid #ddd;
+      border: 1px solid $hover-table-color;
       padding: 8px;
     }
     th {
-      border: 1px solid #ddd;
+      border: 1px solid $hover-table-color;
       padding: 8px;
       padding-top: 12px;
       padding-bottom: 12px;
       text-align: left;
       background-color: $primary-color;
-      color: $color_1;
+      color: $on-primary-color;
     }
     tr {
       &:nth-child(even) {
         background-color: $background-color;
       }
       &:hover {
-        background-color: $background-color_2;
+        background-color: $hover-table-color;
       }
     }
   }

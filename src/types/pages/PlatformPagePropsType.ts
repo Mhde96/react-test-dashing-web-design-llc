@@ -1,3 +1,4 @@
+import { ProductType } from "../data/ProductType";
 
 
 export type SortBy =
@@ -9,8 +10,8 @@ export type SortBy =
     | "reverseprice";
 
 export type PlatformPagePropsType = {
-    data: Array<any>;
-    dataFiltered: () => Array<any>;
+    data: ProductType[];
+    dataFiltered:ProductType[];
     sortBy: SortBy;
     setData: any;
     user: any;

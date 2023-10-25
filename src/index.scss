@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,400&display=swap");
-
+@import "./styles/variable.scss";
 /* Global Styles */
 * {
   font-family: "Poppins", sans-serif;
@@ -17,7 +17,7 @@ body {
 }
 
 .error {
-  color: crimson;
+  color: $error-color;
 }
 
 /* Center Content */
